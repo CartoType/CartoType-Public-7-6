@@ -320,6 +320,42 @@ For more information see http://www.cartotype.com.
             </svg>
         </icon>
 
+        <icon id='pushpin-icon' hotSpotY='100%' width='20m,12pt,24pt'>
+            <svg width='30' height='80'>
+                <defs>
+                    <linearGradient id="g0" x1="10" y1="0" x2="17" y2="0">
+                        <stop offset="0%" stop-color="black"/>
+                        <stop offset="40%" stop-color="white+0.2black"/>
+                        <stop offset="100%" stop-color="black" />
+                    </linearGradient>
+                    <radialGradient id="g1" cx="40%" cy="40%" r="90%" fx="50%" fy="50%">
+                        <stop offset="0%" stop-color="white"/>
+                        <stop offset="100%" stop-color="teal" />
+                    </radialGradient>
+                </defs>
+                <path stroke='url(#g0)' stroke-width='4' d='M 15 30 v 48'/>
+                <circle fill='url(#g1)' cx ='15' cy='15' r='15'/>
+            </svg>
+        </icon>
+
+        <icon id='large-pushpin-icon' hotSpotY='100%' labelY='-81%' width='30m,18pt,36pt'>
+            <svg width='30' height='80'>
+                <defs>
+                    <linearGradient id="g0" x1="10" y1="0" x2="17" y2="0">
+                        <stop offset="0%" stop-color="black"/>
+                        <stop offset="40%" stop-color="white+0.2black"/>
+                        <stop offset="100%" stop-color="black" />
+                    </linearGradient>
+                    <radialGradient id="g1" cx="40%" cy="40%" r="90%" fx="50%" fy="50%">
+                        <stop offset="0%" stop-color="white"/>
+                        <stop offset="100%" stop-color="teal" />
+                    </radialGradient>
+                </defs>
+                <path stroke='url(#g0)' stroke-width='4' d='M 15 30 v 48'/>
+                <circle fill='url(#g1)' cx ='15' cy='15' r='15'/>
+            </svg>
+        </icon>
+
     </defs>
 
     <layer name='map-extent'>
@@ -1022,26 +1058,12 @@ For more information see http://www.cartotype.com.
         <layer name='pushpin'>
             <condition exp='@=0'>
                 <!-- The icon is displayed for point objects only (@=0 means 'object type = point'). -->
-                <icon width='20m,12pt,96pt' canOverlap='true' hotSpotY='100%'>
-                    <svg width='30' height='80'>
-                        <defs>
-                            <linearGradient id="g0" x1="10" y1="0" x2="17" y2="0">
-                                <stop offset="0%" stop-color="black"/>
-                                <stop offset="40%" stop-color="white+0.2black"/>
-                                <stop offset="100%" stop-color="black" />
-                            </linearGradient>
-                            <radialGradient id="g1" cx="40%" cy="40%" r="90%" fx="50%" fy="50%">
-                                <stop offset="0%" stop-color="white"/>
-                                <stop offset="100%" stop-color="teal" />
-                            </radialGradient>
-                        </defs>
-                        <path stroke='url(#g0)' stroke-width='4' d='M 15 30 v 48'/>
-                        <circle fill='url(#g1)' cx ='15' cy='15' r='15'/>
-                    </svg>
-                </icon>
+                <icon ref='pushpin-icon' canOverlap='yes' canCombine='yes'/>
                 <label font-size='12m,6pt' color='teal' glow='white' glowWidth='7%,1' case='assume-title' wrapWidth='5em' priority='-20'/>
-                <shape border='blue' fill='teal' opacity='0.5' borderWidth='2m,0.6pt'/>
-                <line width='5m,0.6pt' fill='teal' opacity='0.5'/>
+                <condition exp='_combined gt 1'>
+                    <icon ref='large-pushpin-icon'/>
+                    <label position='icon' labelFormat='_combined' priority='-21'/>
+                </condition>
             </condition>
             <condition exp='@!=0'>
                 <label font-size='12m,6pt' color='teal' glow='white' glowWidth='7%,1' case='assume-title' wrapWidth='5em' priority='-20'/>

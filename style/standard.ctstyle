@@ -169,15 +169,22 @@ For more information see http://www.cartotype.com.
                 </g>
             </svg>
         </icon>
-        <icon id='pushpin-icon' hotSpotY='100%' width='20m,12pt,96pt'>
+        <icon id='pushpin-icon' hotSpotY='100%' width='20m,12pt,24pt'>
             <svg width="400" height="400">
                 <path d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,
                                 129.896,250.388l4.951,6.738c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,
                                 1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388
-                                C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,
-                                49.191,49.191c0,27.115-22.062,49.191-49.191,49.191
-                                c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z"
+                                C335.179,61.609,273.569,0,197.849,0z"
                     fill="black" opacity="0.5" />
+            </svg>
+        </icon>
+        <icon id='large-pushpin-icon' hotSpotY='100%' labelY='-62.5%' width='30m,18pt,36pt'>
+            <svg width="400" height="400">
+                <path d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,
+                                129.896,250.388l4.951,6.738c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,
+                                1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388
+                                C335.179,61.609,273.569,0,197.849,0z"
+                    fill="black" opacity="0.7" />
             </svg>
         </icon>
         <rampGradient id='terrain-feet-height-ramp'>
@@ -887,7 +894,11 @@ For more information see http://www.cartotype.com.
                 <icon textAttrib='_iconText' font-size='24m,12pt,72pt' color='ncsred' colorAttrib='_color' canOverlap='true'/>
             </condition>
             <condition exp='!_iconText'>
-                <icon ref='pushpin-icon' color='ncsred' colorAttrib='_color' canOverlap='true'/>
+                <icon ref='pushpin-icon' color='ncsred' colorAttrib='_color' canOverlap='yes' canCombine='yes'/>
+                <condition exp='_combined gt 1'>
+                    <icon ref='large-pushpin-icon' color='ncsred'/>
+                    <label position='icon' labelFormat='_combined' color='ncsred' colorAttrib='_color' font-size='12m,6pt,12pt' glow='white' glowWidth='7%,1' priority='-21' wrapWidth='5em'/>
+                </condition>
             </condition>
         </condition>
         <condition exp='@!=0'>
