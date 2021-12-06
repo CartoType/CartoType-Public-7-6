@@ -195,6 +195,10 @@ class TChar
     static constexpr uint32_t KEndOfBox = 0xF1FF;
     /** A character to set the baseline of a box to the baseline of the current line. */
     static constexpr uint32_t KBaselineSelector = 0xF200;
+    /** The first private use character used by CartoType. */
+    static constexpr uint32_t KFirstCartoTypePrivateUseCharacter = KFirstFontSelector;
+    /** The last private use character used by CartoType. */
+    static constexpr uint32_t KLastCartoTypePrivateUseCharacter = KBaselineSelector;
 
     /** Create a TChar with the character code 0. */
     TChar() { }

@@ -851,16 +851,8 @@ CartoType::TResult CCartoTypeDemoView::LoadStyleSheet(const ::CString& aPath)
     CartoType::TResult error = iFramework->SetStyleSheet(path);
     if (error)
         {
-        auto loc = iFramework->StyleSheetErrorLocation();
-        std::string message = "error loading stylesheet";
-        if (loc.iLineNumber != size_t(-1) && loc.iColumnNumber != size_t(-1))
-            {
-            char buffer[80];
-            sprintf_s(buffer," at line %d, column %d",int(loc.iLineNumber),int(loc.iColumnNumber));
-            message += buffer;
-            }
         CCartoTypeDemoApp* app = (CCartoTypeDemoApp*)AfxGetApp();
-        app->ShowError(message,error);
+        app->ShowError("error loading stylesheet",error);
         }
     else
         Update();

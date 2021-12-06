@@ -34,15 +34,15 @@ For more information see http://www.cartotype.com.
             <label font-size='75%,6pt' glow='white' glowWidth='7%,1' color='#777' case='assume-title'/>
         </macro>
 
-        <macro id='island-label'>
-            <label color='#444' glow='white' glowWidth='7%,1' case='assume-title' position='horizontal' wrapWidth='12em' font-size='240m,5pt,16pt' font-style='italic' priory='-4'/>
-        </macro>
+		<macro id='island-label'>
+			<label color='#444' glow='white' glowWidth='7%,1' case='assume-title' position='horizontal' wrapWidth='12em' font-size='240m,5pt,16pt' font-style='italic' priory='-4' duplicate='10000m,1024pt'/>
+		</macro>
 
-        <macro id='point-island-label'>
-            <label maxScale='750000' color='#444' glow='white' glowWidth='7%,1' case='assume-title' position='point' wrapWidth='12em' font-size='240m,5pt,16pt' font-style='italic' priory='-4'/>
-        </macro>
+		<macro id='point-island-label'>
+			<label maxScale='750000' color='#444' glow='white' glowWidth='7%,1' case='assume-title' position='point' wrapWidth='12em' font-size='240m,5pt,16pt' font-style='italic' priory='-4' duplicate='10000m,1024pt'/>
+		</macro>
 
-        <macro id='route-circle'>
+		<macro id='route-circle'>
             <icon canOverlap='true' width='36m@6000_180m@40000,10pt'>
                 <svg width="110" height="110">
                     <circle fill="~color~" cx="55" cy="55" r="50" opacity="0.2"/>
@@ -905,6 +905,7 @@ For more information see http://www.cartotype.com.
                 <!-- TOILETS -->
                 <condition exp='OsmType=="toi"'>
                     <icon ref='toilet-icon'/>
+                    <label labelFormat=' '/>
                 </condition>
             </zoom>
 

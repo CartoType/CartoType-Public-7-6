@@ -394,7 +394,10 @@ void MainWindow::ShowError(const char* aMessage,int aErrorCode)
     char buffer[1024];
     if (aErrorCode)
         {
-        sprintf(buffer,"%s: %s (error code %d)",aMessage,CartoType::ErrorString(aErrorCode).c_str(),aErrorCode);
+        if (aErrorCode < CartoType::KStandardErrorCodeCount)
+            sprintf(buffer,"%s: %s (error code %d)",aMessage,CartoType::ErrorString(aErrorCode).c_str(),aErrorCode);
+        else
+            sprintf(buffer,"%s: %s",aMessage,CartoType::ErrorString(aErrorCode).c_str());
         QString text(buffer);
         QMessageBox::critical(this,"CartoType error",text);
         }

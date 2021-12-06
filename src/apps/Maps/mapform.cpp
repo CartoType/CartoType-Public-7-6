@@ -1560,17 +1560,7 @@ void MapForm::ChooseStyleSheet()
         {
         CartoType::TResult error = m_framework->SetStyleSheet(filename);
         if (error)
-            {
-            std::string message = "error loading stylesheet";
-            auto loc = m_framework->StyleSheetErrorLocation();
-            if (loc.iLineNumber != size_t(-1) && loc.iColumnNumber != size_t(-1))
-                {
-                char buffer[80];
-                sprintf(buffer," at line %d, column %d",int(loc.iLineNumber),int(loc.iColumnNumber));
-                message += buffer;
-                }
-            m_main_window.ShowError(message.c_str(),error);
-            }
+            m_main_window.ShowError("error loading stylesheet",error);
         else
             {
             CreateLegend();

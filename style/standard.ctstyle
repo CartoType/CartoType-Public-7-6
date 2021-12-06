@@ -239,10 +239,10 @@ For more information see http://www.cartotype.com.
             </scale>
         </macro>
         <macro id='island-label'>
-            <label case='assume-title' color='darkslategrey' font-size='150m,6pt,18pt' font-style='italic' font-weight='bold' glow='white' glowWidth='7%,0.5pt' position='horizontal' wrapWidth='12em' priority='-4'/>
+            <label case='assume-title' color='darkslategrey' font-size='150m,6pt,18pt' font-style='italic' font-weight='bold' glow='white' glowWidth='7%,0.5pt' position='horizontal' wrapWidth='12em' priority='-4' duplicate='10000m,1024pt' />
         </macro>
         <macro id='point-island-label'>
-            <label case='assume-title' color='darkslategrey' font-size='150m,6pt,18pt' font-style='italic' font-weight='bold' glow='white' glowWidth='7%,0.5pt' maxScale='50000' position='point' wrapWidth='12em' priority='-4'/>
+            <label case='assume-title' color='darkslategrey' font-size='150m,6pt,18pt' font-style='italic' font-weight='bold' glow='white' glowWidth='7%,0.5pt' maxScale='50000' position='point' wrapWidth='12em' priority='-4' duplicate='10000m,1024pt' />
         </macro>
         <macro id='pushpin'>
             <condition exp='Type le ~type~'>
@@ -750,6 +750,7 @@ For more information see http://www.cartotype.com.
                     </condition>
                     <condition exp='OsmType=="toi"'>
                         <icon ref='toilet-icon'/>
+                        <label labelFormat=' '/>
                     </condition>
                 </scale>
                 <scale max='7500'>
